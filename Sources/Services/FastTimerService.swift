@@ -1,12 +1,16 @@
 import Foundation
+import SwiftData
+import WidgetKit
 
 class FastTimerService: ObservableObject {
     @Published var activeFast: ActiveFast?
     @Published var currentTime = Date()
     
     private var timer: Timer?
+    private var modelContext: ModelContext?
     
-    init() {
+    init(modelContext: ModelContext? = nil) {
+        self.modelContext = modelContext
         // Load active fast from storage
         self.activeFast = AppGroupDefaults.shared.activeFast
         
@@ -120,8 +124,20 @@ class FastTimerService: ObservableObject {
     }
     
     private func saveCompletedFast(_ fast: ActiveFast, wasCompletedNaturally: Bool) {
-        // In a full implementation, this would save to SwiftData
-        // For MVP, we just update the stats
+        // Save to SwiftData if context available
+        if let context = modelContext {
+            let completedFast = CompletedFast(
+                startDate: fast.startDate,
+                endDate: Date(),
+                targetDuration: fast.presetDuration,
+                presetName: fast.presetName,
+                wasCompletedNaturally: wasCompletedNaturally
+            )
+            context.insert(completedFast)
+            try? context.save()
+        }
+        
+        // Update stats
         AppGroupDefaults.shared.totalCompletedFasts += 1
         AppGroupDefaults.shared.lastFastEndDate = Date()
     }
@@ -143,5 +159,3 @@ class FastTimerService: ObservableObject {
         }
     }
 }
-
-import WidgetKit

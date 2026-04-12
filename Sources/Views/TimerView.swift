@@ -1,8 +1,14 @@
 import SwiftUI
+import SwiftData
 
 struct TimerView: View {
-    @StateObject private var timerService = FastTimerService()
+    @Environment(\.modelContext) private var modelContext
+    @StateObject private var timerService: FastTimerService
     @StateObject private var purchaseService = PurchaseService()
+    
+    init() {
+        _timerService = StateObject(wrappedValue: FastTimerService())
+    }
     @State private var showPaywall = false
     @State private var selectedPreset: FastPreset = .sixteenEight
     @State private var showPresetPicker = false
@@ -34,6 +40,9 @@ struct TimerView: View {
         }
         .environmentObject(timerService)
         .environmentObject(purchaseService)
+        .onAppear {
+            timerService.setModelContext(modelContext)
+        }
     }
     
     private func startFast() {

@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct HonestFastingTimerApp: App {
@@ -8,6 +9,7 @@ struct HonestFastingTimerApp: App {
         WindowGroup {
             RootView()
         }
+        .modelContainer(for: CompletedFast.self)
     }
 }
 
