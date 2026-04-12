@@ -28,7 +28,7 @@ struct OnboardingView: View {
             
             Image(systemName: pages[page].icon)
                 .font(.system(size: 80))
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
             
             Text(pages[page].title)
                 .font(.largeTitle.bold())

@@ -124,7 +124,7 @@ struct InactiveFastView: View {
             
             Image(systemName: "timer")
                 .font(.system(size: 80))
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
             
             Text("Ready to Fast?")
                 .font(.title.bold())
@@ -207,7 +207,7 @@ struct PresetPickerView: View {
                         
                         if preset == selectedPreset {
                             Image(systemName: "checkmark")
-                                .foregroundStyle(.accent)
+                                .foregroundStyle(Color.accentColor)
                         }
                         
                         if !purchaseService.isUnlocked && preset != .sixteenEight {
