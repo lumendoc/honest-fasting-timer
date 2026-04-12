@@ -54,7 +54,7 @@ struct SettingsView: View {
                             } label: {
                                 Text("Upgrade")
                                     .font(.caption)
-                                    .foregroundStyle(.accent)
+                                    .foregroundStyle(Color.accentColor)
                             }
                         }
                     }
