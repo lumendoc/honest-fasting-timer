@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PaywallView: View {
     @EnvironmentObject var purchaseService: PurchaseService
-    @Environment(\.
+    @Environment(\.dismiss) private var dismiss
     @State private var showError = false
     
     var body: some View {
