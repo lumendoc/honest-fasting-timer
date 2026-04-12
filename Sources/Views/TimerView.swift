@@ -95,7 +95,19 @@ struct TimerView: View {
         // Mark that user has started their first fast
         AppGroupDefaults.shared.hasStartedFirstFast = true
         
-        timerService.startFast(preset: selectedPreset)
+        // Request notification permission at the right moment (when starting first fast)
+        // This provides context: user understands WHY notifications are needed
+        Task {
+            let isAuthorized = await NotificationService.shared.checkAuthorizationStatus()
+            if !isAuthorized {
+                try? await NotificationService.shared.requestAuthorization()
+            }
+            
+            // Start the fast after permission request (even if denied, fast still starts)
+            await MainActor.run {
+                timerService.startFast(preset: selectedPreset)
+            }
+        }
     }
 }
 

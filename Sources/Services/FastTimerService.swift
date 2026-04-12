@@ -14,6 +14,11 @@ class FastTimerService: ObservableObject {
         // Load active fast from storage
         self.activeFast = AppGroupDefaults.shared.activeFast
         
+        // Reschedule notification if there's an active fast (handles app restart)
+        if let fast = self.activeFast, !fast.isComplete {
+            NotificationService.shared.scheduleFastCompletionNotification(endDate: fast.endDate)
+        }
+        
         // Start UI update timer
         startTimer()
     }

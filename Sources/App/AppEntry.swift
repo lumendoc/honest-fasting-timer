@@ -15,10 +15,8 @@ struct HonestFastingTimerApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        // Request notification authorization on first launch
-        Task {
-            _ = try? await NotificationService.shared.requestAuthorization()
-        }
+        // Notification permission is requested when user starts their first fast
+        // This provides context and improves authorization rates
         return true
     }
 }
