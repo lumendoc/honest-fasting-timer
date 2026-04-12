@@ -7,19 +7,40 @@ struct PaywallView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 24) {
-                Text("Unlock Full App")
-                    .font(.largeTitle.bold())
+                // Header
+                VStack(spacing: 12) {
+                    Image(systemName: "lock.open.fill")
+                        .font(.system(size: 60))
+                        .foregroundStyle(Color.accentColor)
+                    
+                    Text("Unlock Full App")
+                        .font(.largeTitle.bold())
 
-                Text("One-time purchase. Never pay again.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
+                    Text("One-time purchase. Never pay again.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                
+                // Features
+                VStack(alignment: .leading, spacing: 16) {
+                    FeatureRow(icon: "infinity", text: "All fasting presets")
+                    FeatureRow(icon: "chart.bar", text: "Full history & stats")
+                    FeatureRow(icon: "square.grid.2x2", text: "Home screen widget")
+                    FeatureRow(icon: "bell", text: "Completion notifications")
+                }
+                .padding(.vertical)
+
+                Spacer()
 
                 if let product = purchaseService.product {
                     VStack(spacing: 12) {
                         Button {
                             Task {
-                                _ = try? await purchaseService.purchase()
+                                let success = try? await purchaseService.purchase()
+                                if success == true {
+                                    dismiss()
+                                }
                             }
                         } label: {
                             HStack {
@@ -38,6 +59,9 @@ struct PaywallView: View {
                         Button("Restore Purchases") {
                             Task {
                                 await purchaseService.restorePurchases()
+                                if purchaseService.isUnlocked {
+                                    dismiss()
+                                }
                             }
                         }
                         .font(.footnote)
@@ -49,8 +73,6 @@ struct PaywallView: View {
                     Text("Unable to load product.")
                         .foregroundStyle(.secondary)
                 }
-
-                Spacer()
             }
             .padding()
             .toolbar {
@@ -58,6 +80,27 @@ struct PaywallView: View {
                     Button("Dismiss") { dismiss() }
                 }
             }
+        }
+    }
+}
+
+// MARK: - Feature Row
+
+struct FeatureRow: View {
+    let icon: String
+    let text: String
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .font(.title3)
+                .foregroundStyle(Color.accentColor)
+                .frame(width: 32)
+            
+            Text(text)
+                .font(.body)
+            
+            Spacer()
         }
     }
 }

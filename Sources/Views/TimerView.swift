@@ -13,6 +13,9 @@ struct TimerView: View {
     @State private var selectedPreset: FastPreset = .sixteenEight
     @State private var showPresetPicker = false
     
+    /// Tracks whether we're attempting to start the first fast (for paywall flow)
+    @State private var isAttemptingFirstFast = false
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 24) {
@@ -24,13 +27,13 @@ struct TimerView: View {
                     InactiveFastView(
                         selectedPreset: $selectedPreset,
                         showPresetPicker: $showPresetPicker,
-                        onStart: { startFast() }
+                        onStart: { prepareToStartFast() }
                     )
                 }
             }
             .padding()
             .navigationTitle("Fasting Timer")
-            .sheet(isPresented: $showPaywall) {
+            .sheet(isPresented: $showPaywall, onDismiss: handlePaywallDismiss) {
                 PaywallView()
                     .environmentObject(purchaseService)
             }
@@ -45,12 +48,52 @@ struct TimerView: View {
         }
     }
     
-    private func startFast() {
-        // Free tier: only 16:8 preset
-        if !purchaseService.isUnlocked && selectedPreset != .sixteenEight {
+    /// Prepares to start a fast with paywall gating logic
+    private func prepareToStartFast() {
+        // Rule 1: If already unlocked, allow any preset
+        guard !purchaseService.isUnlocked else {
+            startFast()
+            return
+        }
+        
+        // Rule 2: If this is the first fast ever, show paywall first
+        if !AppGroupDefaults.shared.hasStartedFirstFast {
+            isAttemptingFirstFast = true
+            showPaywall = true
+            AppGroupDefaults.shared.hasSeenPaywall = true
+            return
+        }
+        
+        // Rule 3: Not first fast, not unlocked - only allow free 16:8 preset
+        if selectedPreset != .sixteenEight {
             showPaywall = true
             return
         }
+        
+        // Free tier, allow 16:8
+        startFast()
+    }
+    
+    /// Called when paywall is dismissed - check if purchase happened
+    private func handlePaywallDismiss() {
+        // If user purchased, complete the first fast start
+        if purchaseService.isUnlocked && isAttemptingFirstFast {
+            isAttemptingFirstFast = false
+            startFast()
+            return
+        }
+        
+        // If user didn't purchase and this was first fast attempt,
+        // they stay on the free tier (no fast started)
+        if isAttemptingFirstFast {
+            isAttemptingFirstFast = false
+            // User dismissed without purchasing - they can try again
+        }
+    }
+    
+    private func startFast() {
+        // Mark that user has started their first fast
+        AppGroupDefaults.shared.hasStartedFirstFast = true
         
         timerService.startFast(preset: selectedPreset)
     }
@@ -166,6 +209,17 @@ struct InactiveFastView: View {
                     Image(systemName: "lock.fill")
                         .font(.caption)
                     Text("Premium preset - unlock to use")
+                        .font(.caption)
+                }
+                .foregroundStyle(.orange)
+            }
+            
+            // First fast indicator
+            if !purchaseService.isUnlocked && !AppGroupDefaults.shared.hasStartedFirstFast {
+                HStack {
+                    Image(systemName: "lock.fill")
+                        .font(.caption)
+                    Text("Unlock required for first fast")
                         .font(.caption)
                 }
                 .foregroundStyle(.orange)

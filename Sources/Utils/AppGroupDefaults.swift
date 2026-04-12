@@ -35,6 +35,20 @@ class AppGroupDefaults {
         activeFast != nil
     }
     
+    // MARK: - Paywall Gating
+    
+    /// Tracks if user has started their first fast ever (used for first-fast paywall gating)
+    var hasStartedFirstFast: Bool {
+        get { defaults?.bool(forKey: "hasStartedFirstFast") ?? false }
+        set { defaults?.set(newValue, forKey: "hasStartedFirstFast") }
+    }
+    
+    /// Tracks if user has seen the paywall (used to ensure consistent behavior)
+    var hasSeenPaywall: Bool {
+        get { defaults?.bool(forKey: "hasSeenPaywall") ?? false }
+        set { defaults?.set(newValue, forKey: "hasSeenPaywall") }
+    }
+    
     // MARK: - User Preferences
     
     var selectedPreset: String {
