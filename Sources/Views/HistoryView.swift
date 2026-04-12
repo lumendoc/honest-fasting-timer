@@ -1,14 +1,16 @@
 import SwiftUI
+import SwiftData
 
 struct HistoryView: View {
     @StateObject private var purchaseService = PurchaseService()
+    @Query(sort: \CompletedFast.startDate, order: .reverse) private var completedFasts: [CompletedFast]
     @State private var showPaywall = false
     
     var body: some View {
         NavigationStack {
             Group {
                 if purchaseService.isUnlocked {
-                    HistoryContentView()
+                    HistoryContentView(completedFasts: completedFasts)
                 } else {
                     LockedHistoryView {
                         showPaywall = true
@@ -28,6 +30,8 @@ struct HistoryView: View {
 // MARK: - History Content
 
 struct HistoryContentView: View {
+    let completedFasts: [CompletedFast]
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
@@ -41,13 +45,19 @@ struct HistoryContentView: View {
                         .font(.headline)
                         .padding(.horizontal)
                     
-                    // Placeholder - would show actual fasts from SwiftData
-                    ForEach(0..<5) { i in
-                        FastHistoryRow(
-                            date: Date().addingTimeInterval(-Double(i) * 86400),
-                            duration: 16 * 60 * 60,
-                            preset: "16:8 Intermittent"
-                        )
+                    if completedFasts.isEmpty {
+                        Text("No completed fasts yet")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .padding(.horizontal)
+                    } else {
+                        ForEach(completedFasts.prefix(20)) { fast in
+                            FastHistoryRow(
+                                date: fast.startDate,
+                                duration: fast.actualDuration,
+                                preset: fast.presetName
+                            )
+                        }
                     }
                 }
             }
