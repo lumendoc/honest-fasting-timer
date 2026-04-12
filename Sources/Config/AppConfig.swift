@@ -8,7 +8,7 @@ enum AppConfig {
     static let supportURL = URL(string: "mailto:support@lumendoc.net")!
 
     // One-time purchase (not subscription)
-    static let unlockProductId = "com.lumen.honestfastingtimer.unlock"
+    static let unlockProductId = "com.lumen.honestfastingtimer.fullunlock"
     
     // Price display string
     static let unlockPrice = "$4.99"

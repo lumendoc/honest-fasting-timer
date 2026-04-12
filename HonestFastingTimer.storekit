@@ -1,0 +1,31 @@
+{
+  "identifier": "com.lumen.honestfastingtimer.storekit",
+  "bundleIdentifier": "com.lumen.honestfastingtimer",
+  "products": [
+    {
+      "displayPrice": "$4.99",
+      "familyShareable": false,
+      "internalID": "com.lumen.honestfastingtimer.fullunlock",
+      "localizations": [
+        {
+          "description": "Unlock all fasting presets, history, and widget",
+          "displayName": "Full Unlock",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.lumen.honestfastingtimer.fullunlock",
+      "referenceName": "Full Unlock",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "askToBuyEnabled": false,
+    "compatibilityVersion": 2,
+    "serverEnvironment": "Xcode"
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 1,
+    "minor": 0
+  }
+}
