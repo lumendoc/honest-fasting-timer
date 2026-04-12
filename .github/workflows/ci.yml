@@ -15,6 +15,9 @@ jobs:
       - name: Select Xcode 16.2
         run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
 
+      - name: Install xcodegen
+        run: brew install xcodegen
+
       - name: Generate project
         run: xcodegen generate
 
@@ -24,17 +27,19 @@ jobs:
             -scheme HonestFastingTimer \
             -configuration Debug \
             -destination 'platform=iOS Simulator,name=iPhone 16' \
-            build 2>&1 | tee build.log | tail -20
+            build 2>&1 | tee build.log
         shell: bash
         env:
           CI: true
 
       - name: Boot simulator for screenshot
+        if: success()
         run: |
           xcrun simctl boot "iPhone 16" || true
           sleep 2
 
       - name: Capture screenshot
+        if: success()
         run: |
           xcrun simctl io "iPhone 16" screenshot /tmp/screenshot.png || true
           ls -la /tmp/screenshot.png 2>/dev/null || echo "screenshot skipped"

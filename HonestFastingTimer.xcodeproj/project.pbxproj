@@ -12,7 +12,6 @@
 		314FEFB7BA63D9898BB58961 /* FastTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE3252AACA82D6FE80D413B /* FastTimerService.swift */; };
 		3FFC1372DB7036547634057F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991CCF9D85249AA38BE2A7E6 /* NotificationService.swift */; };
 		484D4955C713C2C167F7232A /* HonestFastingTimerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FDA7ADA55C57F52B17E2B342 /* HonestFastingTimerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6A1DA8185E6957EE97BB3E9B /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57507C6CE4FB5563284D96F8 /* StoreKitManager.swift */; };
 		874E7A0D257EFDDC173F8D5B /* FastPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D5DD1C692C4AE90ABA10BE /* FastPreset.swift */; };
 		8881884D698589C5372F36AB /* ActiveFast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10514B7C90A86E52A68901F9 /* ActiveFast.swift */; };
 		93C65D3909C77B3AB16E3E34 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A65A5974592A9FB6F3910 /* HistoryView.swift */; };
@@ -57,7 +56,6 @@
 		3E1DE002C3762B05B19C47C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		401E3C9B04ECBBFEB88985D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		43B78DC393C5C3D831B20127 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
-		57507C6CE4FB5563284D96F8 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		5AB0E84A5352651FF9F39ED0 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		6858EAD90A318D21DEF6B1D4 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		6C1CA4F37512C707277ED531 /* AppEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				5AB0E84A5352651FF9F39ED0 /* PaywallView.swift */,
-				57507C6CE4FB5563284D96F8 /* StoreKitManager.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -293,7 +290,6 @@
 				F000951B354307D4596A7C90 /* OnboardingView.swift in Sources */,
 				A5187C0BC3FD97C0ABA3DEF5 /* PaywallView.swift in Sources */,
 				B084EE4451F44F97BFD5FC17 /* PurchaseService.swift in Sources */,
-				6A1DA8185E6957EE97BB3E9B /* StoreKitManager.swift in Sources */,
 				970148C085FEAAD617857FE5 /* TimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
