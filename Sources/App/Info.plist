@@ -20,8 +20,17 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
+	<key>NSSupportsLiveActivities</key>
+	<false/>
 	<key>NSUserNotificationUsageDescription</key>
-	<string>We need to send you notifications when your fasting period is complete.</string>
+	<string>Notifications are used to alert you when your fast is complete.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+		<string>fetch</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 </dict>

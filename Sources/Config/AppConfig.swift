@@ -3,8 +3,8 @@ import Foundation
 enum AppConfig {
     static let appName = "Honest Fasting Timer"
     static let bundleId = "com.lumen.honestfastingtimer"
-    static let privacyPolicyURL = URL(string: "https://lumenhunt.com/privacy")!
-    static let supportURL = URL(string: "https://lumenhunt.com/support")!
+    static let privacyPolicyURL = URL(string: "https://lumendoc.net/privacy")!
+    static let supportURL = URL(string: "mailto:support@lumendoc.net")!
 
     // One-time purchase (not subscription)
     static let unlockProductId = "com.lumen.honestfastingtimer.unlock"

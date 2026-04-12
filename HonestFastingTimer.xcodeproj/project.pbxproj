@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E6ED1FCA04E8760718B0314 /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1CA4F37512C707277ED531 /* AppEntry.swift */; };
+		18455853B98BCE280971D06D /* HonestFastingTimerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C853D90265C1F77D74B71DBB /* HonestFastingTimerWidget.swift */; };
+		314FEFB7BA63D9898BB58961 /* FastTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE3252AACA82D6FE80D413B /* FastTimerService.swift */; };
+		3FFC1372DB7036547634057F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991CCF9D85249AA38BE2A7E6 /* NotificationService.swift */; };
+		484D4955C713C2C167F7232A /* HonestFastingTimerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FDA7ADA55C57F52B17E2B342 /* HonestFastingTimerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6A1DA8185E6957EE97BB3E9B /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57507C6CE4FB5563284D96F8 /* StoreKitManager.swift */; };
+		874E7A0D257EFDDC173F8D5B /* FastPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D5DD1C692C4AE90ABA10BE /* FastPreset.swift */; };
+		8881884D698589C5372F36AB /* ActiveFast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10514B7C90A86E52A68901F9 /* ActiveFast.swift */; };
+		93C65D3909C77B3AB16E3E34 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A65A5974592A9FB6F3910 /* HistoryView.swift */; };
+		970148C085FEAAD617857FE5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858EAD90A318D21DEF6B1D4 /* TimerView.swift */; };
+		A5187C0BC3FD97C0ABA3DEF5 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0E84A5352651FF9F39ED0 /* PaywallView.swift */; };
+		B084EE4451F44F97BFD5FC17 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B78DC393C5C3D831B20127 /* PurchaseService.swift */; };
+		D5964A3DB8DA0B45AEE50C65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B4FA0270D6DB7632A1400 /* ContentView.swift */; };
+		E176B4C53569AFD3DA911E5B /* AppGroupDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC277EBB12BD8252AC3090F /* AppGroupDefaults.swift */; };
+		E5AB781C84592DFFD4479A31 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEA6BB71659BC3AE19F3289 /* AppConfig.swift */; };
+		F000951B354307D4596A7C90 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC58B5ABA93AED6D723068 /* OnboardingView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		25D1FB089844EE55130DED4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 473DA8CD66A20ED8C740A71D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED837E6EDE58216BBFB8258F;
+			remoteInfo = HonestFastingTimerWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		765FD9B2C024CE1E0B6114C2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				484D4955C713C2C167F7232A /* HonestFastingTimerWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0BE3252AACA82D6FE80D413B /* FastTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastTimerService.swift; sourceTree = "<group>"; };
+		0CC277EBB12BD8252AC3090F /* AppGroupDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupDefaults.swift; sourceTree = "<group>"; };
+		10514B7C90A86E52A68901F9 /* ActiveFast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFast.swift; sourceTree = "<group>"; };
+		38FB7D4C3D21C57E4D489817 /* HonestFastingTimer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HonestFastingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1DE002C3762B05B19C47C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		401E3C9B04ECBBFEB88985D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		43B78DC393C5C3D831B20127 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
+		57507C6CE4FB5563284D96F8 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		5AB0E84A5352651FF9F39ED0 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		6858EAD90A318D21DEF6B1D4 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		6C1CA4F37512C707277ED531 /* AppEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
+		6FEA6BB71659BC3AE19F3289 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		7544EB6B48F8DB534178A73A /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		76CC58B5ABA93AED6D723068 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		991CCF9D85249AA38BE2A7E6 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		C1FF8AEB094528F838D35305 /* HonestFastingTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HonestFastingTimer.entitlements; sourceTree = "<group>"; };
+		C853D90265C1F77D74B71DBB /* HonestFastingTimerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HonestFastingTimerWidget.swift; sourceTree = "<group>"; };
+		F02B4FA0270D6DB7632A1400 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F39A65A5974592A9FB6F3910 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F9D5DD1C692C4AE90ABA10BE /* FastPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastPreset.swift; sourceTree = "<group>"; };
+		FDA7ADA55C57F52B17E2B342 /* HonestFastingTimerWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = HonestFastingTimerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		12B9527EA86834A4A1E9E60D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38FB7D4C3D21C57E4D489817 /* HonestFastingTimer.app */,
+				FDA7ADA55C57F52B17E2B342 /* HonestFastingTimerWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16E2D490450538C335185801 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				6FEA6BB71659BC3AE19F3289 /* AppConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		2AF29CE2C7A0418E9A3E4849 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6C1CA4F37512C707277ED531 /* AppEntry.swift */,
+				C1FF8AEB094528F838D35305 /* HonestFastingTimer.entitlements */,
+				401E3C9B04ECBBFEB88985D6 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		35FE7F77542AD2759212C828 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F02B4FA0270D6DB7632A1400 /* ContentView.swift */,
+				F39A65A5974592A9FB6F3910 /* HistoryView.swift */,
+				6858EAD90A318D21DEF6B1D4 /* TimerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		400B814303D1F68BE28D8409 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0BE3252AACA82D6FE80D413B /* FastTimerService.swift */,
+				991CCF9D85249AA38BE2A7E6 /* NotificationService.swift */,
+				43B78DC393C5C3D831B20127 /* PurchaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		44BDA0766969C3A3EF7DDF63 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				C853D90265C1F77D74B71DBB /* HonestFastingTimerWidget.swift */,
+				3E1DE002C3762B05B19C47C6 /* Info.plist */,
+				7544EB6B48F8DB534178A73A /* WidgetExtension.entitlements */,
+			);
+			name = Widget;
+			path = Sources/Widget;
+			sourceTree = "<group>";
+		};
+		5F513A8D0F8A167C61EC8ACC /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				5AB0E84A5352651FF9F39ED0 /* PaywallView.swift */,
+				57507C6CE4FB5563284D96F8 /* StoreKitManager.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
+		6955237BC832B17A15A68520 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0CC277EBB12BD8252AC3090F /* AppGroupDefaults.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		85B0438E580FF6F6006E8315 = {
+			isa = PBXGroup;
+			children = (
+				A133B5C2798C32CB04D7F832 /* Sources */,
+				44BDA0766969C3A3EF7DDF63 /* Widget */,
+				12B9527EA86834A4A1E9E60D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B89FAA1C9965E525B3F65C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10514B7C90A86E52A68901F9 /* ActiveFast.swift */,
+				F9D5DD1C692C4AE90ABA10BE /* FastPreset.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A133B5C2798C32CB04D7F832 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2AF29CE2C7A0418E9A3E4849 /* App */,
+				16E2D490450538C335185801 /* Config */,
+				8B89FAA1C9965E525B3F65C3 /* Models */,
+				AB5AE068D03A50EF7A1BA853 /* Onboarding */,
+				5F513A8D0F8A167C61EC8ACC /* Payments */,
+				CBF006DEB82606A07CEBF47E /* Screens */,
+				400B814303D1F68BE28D8409 /* Services */,
+				6955237BC832B17A15A68520 /* Utils */,
+				35FE7F77542AD2759212C828 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AB5AE068D03A50EF7A1BA853 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				76CC58B5ABA93AED6D723068 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CBF006DEB82606A07CEBF47E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41EE321850A3DAAEE602B876 /* HonestFastingTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2282B00559F29F88E18E97 /* Build configuration list for PBXNativeTarget "HonestFastingTimer" */;
+			buildPhases = (
+				7C5E61F8234539067835E004 /* Sources */,
+				765FD9B2C024CE1E0B6114C2 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				526476B9EA5206FEB5922C65 /* PBXTargetDependency */,
+			);
+			name = HonestFastingTimer;
+			packageProductDependencies = (
+			);
+			productName = HonestFastingTimer;
+			productReference = 38FB7D4C3D21C57E4D489817 /* HonestFastingTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED837E6EDE58216BBFB8258F /* HonestFastingTimerWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10CC7909A0A14C988400CA3F /* Build configuration list for PBXNativeTarget "HonestFastingTimerWidgetExtension" */;
+			buildPhases = (
+				8163F0C3D998E5CAFA48E468 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HonestFastingTimerWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HonestFastingTimerWidgetExtension;
+			productReference = FDA7ADA55C57F52B17E2B342 /* HonestFastingTimerWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		473DA8CD66A20ED8C740A71D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					41EE321850A3DAAEE602B876 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					ED837E6EDE58216BBFB8258F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7B89A8CE33723494B76930CF /* Build configuration list for PBXProject "HonestFastingTimer" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 85B0438E580FF6F6006E8315;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 12B9527EA86834A4A1E9E60D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41EE321850A3DAAEE602B876 /* HonestFastingTimer */,
+				ED837E6EDE58216BBFB8258F /* HonestFastingTimerWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C5E61F8234539067835E004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8881884D698589C5372F36AB /* ActiveFast.swift in Sources */,
+				E5AB781C84592DFFD4479A31 /* AppConfig.swift in Sources */,
+				0E6ED1FCA04E8760718B0314 /* AppEntry.swift in Sources */,
+				E176B4C53569AFD3DA911E5B /* AppGroupDefaults.swift in Sources */,
+				D5964A3DB8DA0B45AEE50C65 /* ContentView.swift in Sources */,
+				874E7A0D257EFDDC173F8D5B /* FastPreset.swift in Sources */,
+				314FEFB7BA63D9898BB58961 /* FastTimerService.swift in Sources */,
+				93C65D3909C77B3AB16E3E34 /* HistoryView.swift in Sources */,
+				3FFC1372DB7036547634057F /* NotificationService.swift in Sources */,
+				F000951B354307D4596A7C90 /* OnboardingView.swift in Sources */,
+				A5187C0BC3FD97C0ABA3DEF5 /* PaywallView.swift in Sources */,
+				B084EE4451F44F97BFD5FC17 /* PurchaseService.swift in Sources */,
+				6A1DA8185E6957EE97BB3E9B /* StoreKitManager.swift in Sources */,
+				970148C085FEAAD617857FE5 /* TimerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8163F0C3D998E5CAFA48E468 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18455853B98BCE280971D06D /* HonestFastingTimerWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		526476B9EA5206FEB5922C65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED837E6EDE58216BBFB8258F /* HonestFastingTimerWidgetExtension */;
+			targetProxy = 25D1FB089844EE55130DED4E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0C5DF1711A5440AACEE9E485 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		0E0AD42DCB7DA21A9AAE96A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sources/Widget/WidgetExtension.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EB6F8D41264386ECF40E1B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		44E811BC9965D3A1DE65582C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/App/HonestFastingTimer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		540EC59A45F6A06801320370 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/App/HonestFastingTimer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB9C99B4720D8A7D6EDFBF84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sources/Widget/WidgetExtension.entitlements;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10CC7909A0A14C988400CA3F /* Build configuration list for PBXNativeTarget "HonestFastingTimerWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E0AD42DCB7DA21A9AAE96A6 /* Debug */,
+				FB9C99B4720D8A7D6EDFBF84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7B89A8CE33723494B76930CF /* Build configuration list for PBXProject "HonestFastingTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EB6F8D41264386ECF40E1B8 /* Debug */,
+				0C5DF1711A5440AACEE9E485 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BA2282B00559F29F88E18E97 /* Build configuration list for PBXNativeTarget "HonestFastingTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				540EC59A45F6A06801320370 /* Debug */,
+				44E811BC9965D3A1DE65582C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 473DA8CD66A20ED8C740A71D /* Project object */;
+}

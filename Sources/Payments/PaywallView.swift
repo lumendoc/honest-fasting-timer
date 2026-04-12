@@ -1,48 +1,55 @@
 import SwiftUI
 
 struct PaywallView: View {
-    @EnvironmentObject var store: StoreKitManager
+    @EnvironmentObject var purchaseService: PurchaseService
     @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 24) {
-                Text("Unlock Premium")
+                Text("Unlock Full App")
                     .font(.largeTitle.bold())
-                
-                Text("Start your \(AppConfig.trialDays)-day free trial. Cancel anytime.")
+
+                Text("One-time purchase. Never pay again.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
-                
-                VStack(spacing: 12) {
-                    ForEach(store.products) { product in
+
+                if let product = purchaseService.product {
+                    VStack(spacing: 12) {
                         Button {
                             Task {
-                                _ = try? await store.purchase(product)
+                                _ = try? await purchaseService.purchase()
                             }
                         } label: {
                             HStack {
-                                Text(product.displayName)
+                                Text("Unlock — \(product.displayPrice)")
                                 Spacer()
-                                Text(product.displayPrice)
+                                Image(systemName: "arrow.right")
                             }
                             .padding()
-                            .background(Color.accentColor.opacity(0.1))
+                            .background(Color.accentColor)
+                            .foregroundStyle(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
                         .buttonStyle(.plain)
+                        .disabled(purchaseService.isLoading)
+
+                        Button("Restore Purchases") {
+                            Task {
+                                await purchaseService.restorePurchases()
+                            }
+                        }
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                     }
+                } else if purchaseService.isLoading {
+                    ProgressView("Loading...")
+                } else {
+                    Text("Unable to load product.")
+                        .foregroundStyle(.secondary)
                 }
-                
-                Button("Restore Purchases") {
-                    Task {
-                        await store.restorePurchases()
-                    }
-                }
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-                
+
                 Spacer()
             }
             .padding()
