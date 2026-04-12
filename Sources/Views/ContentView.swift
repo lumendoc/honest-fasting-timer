@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var purchaseService = PurchaseService()
+    @State private var showSettings = false
     
     var body: some View {
         TabView {
@@ -16,5 +17,19 @@ struct ContentView: View {
                 }
         }
         .environmentObject(purchaseService)
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+                .environmentObject(purchaseService)
+        }
+        .overlay(alignment: .topTrailing) {
+            Button {
+                showSettings = true
+            } label: {
+                Image(systemName: "gear")
+                    .font(.title3)
+                    .foregroundStyle(Color.accentColor)
+                    .padding()
+            }
+        }
     }
 }

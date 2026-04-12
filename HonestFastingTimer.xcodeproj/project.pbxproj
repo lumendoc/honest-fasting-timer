@@ -12,6 +12,7 @@
 		314FEFB7BA63D9898BB58961 /* FastTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE3252AACA82D6FE80D413B /* FastTimerService.swift */; };
 		3FFC1372DB7036547634057F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991CCF9D85249AA38BE2A7E6 /* NotificationService.swift */; };
 		484D4955C713C2C167F7232A /* HonestFastingTimerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FDA7ADA55C57F52B17E2B342 /* HonestFastingTimerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		50FEEBCCE29AB06E3DBAB238 /* CompletedFast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11681B6C72ECAED5DEFA49EC /* CompletedFast.swift */; };
 		874E7A0D257EFDDC173F8D5B /* FastPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D5DD1C692C4AE90ABA10BE /* FastPreset.swift */; };
 		8881884D698589C5372F36AB /* ActiveFast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10514B7C90A86E52A68901F9 /* ActiveFast.swift */; };
 		93C65D3909C77B3AB16E3E34 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A65A5974592A9FB6F3910 /* HistoryView.swift */; };
@@ -52,6 +53,7 @@
 		0BE3252AACA82D6FE80D413B /* FastTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastTimerService.swift; sourceTree = "<group>"; };
 		0CC277EBB12BD8252AC3090F /* AppGroupDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupDefaults.swift; sourceTree = "<group>"; };
 		10514B7C90A86E52A68901F9 /* ActiveFast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFast.swift; sourceTree = "<group>"; };
+		11681B6C72ECAED5DEFA49EC /* CompletedFast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedFast.swift; sourceTree = "<group>"; };
 		38FB7D4C3D21C57E4D489817 /* HonestFastingTimer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HonestFastingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1DE002C3762B05B19C47C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		401E3C9B04ECBBFEB88985D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				10514B7C90A86E52A68901F9 /* ActiveFast.swift */,
+				11681B6C72ECAED5DEFA49EC /* CompletedFast.swift */,
 				F9D5DD1C692C4AE90ABA10BE /* FastPreset.swift */,
 			);
 			path = Models;
@@ -282,6 +285,7 @@
 				E5AB781C84592DFFD4479A31 /* AppConfig.swift in Sources */,
 				0E6ED1FCA04E8760718B0314 /* AppEntry.swift in Sources */,
 				E176B4C53569AFD3DA911E5B /* AppGroupDefaults.swift in Sources */,
+				50FEEBCCE29AB06E3DBAB238 /* CompletedFast.swift in Sources */,
 				D5964A3DB8DA0B45AEE50C65 /* ContentView.swift in Sources */,
 				874E7A0D257EFDDC173F8D5B /* FastPreset.swift in Sources */,
 				314FEFB7BA63D9898BB58961 /* FastTimerService.swift in Sources */,
