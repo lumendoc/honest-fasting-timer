@@ -74,7 +74,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Link(destination: AppConfig.supportURL) {
+                    Link(destination: AppConfig.termsOfServiceURL) {
                         HStack {
                             Image(systemName: "doc.text")
                                 .foregroundStyle(Color.accentColor)

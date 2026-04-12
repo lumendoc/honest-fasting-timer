@@ -4,6 +4,7 @@ enum AppConfig {
     static let appName = "Honest Fasting Timer"
     static let bundleId = "com.lumen.honestfastingtimer"
     static let privacyPolicyURL = URL(string: "https://lumendoc.net/privacy")!
+    static let termsOfServiceURL = URL(string: "https://lumendoc.net/terms")!
     static let supportURL = URL(string: "mailto:support@lumendoc.net")!
 
     // One-time purchase (not subscription)
