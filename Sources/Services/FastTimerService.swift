@@ -18,6 +18,10 @@ class FastTimerService: ObservableObject {
         startTimer()
     }
     
+    func setModelContext(_ context: ModelContext?) {
+        self.modelContext = context
+    }
+    
     deinit {
         stopTimer()
     }
