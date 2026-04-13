@@ -1,0 +1,12 @@
+.DS_Store
+.bundle/
+.env
+.env.*
+build/
+DerivedData/
+fastlane/Preview.html
+fastlane/report.xml
+fastlane/screenshots/
+fastlane/test_output/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/

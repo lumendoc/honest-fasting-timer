@@ -15,7 +15,10 @@ Do not use:
 - Bundle ID: `com.lumen.honestfastingtimer`
 - Widget bundle ID: `com.lumen.honestfastingtimer.widget`
 - Export options: `ExportOptions-AppStore.plist`
+- Gem bundle: `Gemfile`
+- Fastlane lane: `fastlane/Fastfile -> ios sync_signing`
 - Version script: `scripts/ios-release-version.js`
+- Signing sync script: `scripts/ios-sync-signing.sh`
 - Archive script: `scripts/ios-local-archive.sh`
 - Upload script: `scripts/ios-local-upload.sh`
 
@@ -25,6 +28,16 @@ Do not use:
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 xcodebuild -version
 xcrun iTMSTransporter -m provider
+```
+
+Required environment for headless signing:
+
+```bash
+export MATCH_GIT_URL=git@github.com:YOURORG/certificates.git
+export MATCH_PASSWORD=...
+export APPSTORECONNECT_KEY_ID=...
+export APPSTORECONNECT_ISSUER_ID=...
+export APPSTORECONNECT_API_KEY_PATH=/absolute/path/AuthKey_KEYID.p8
 ```
 
 ## Versioning
@@ -66,14 +79,21 @@ git status --short
 node scripts/ios-release-version.js --bump-build
 ```
 
-### 3. Archive And Export IPA
+### 3. Sync Signing Assets
+
+```bash
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+./scripts/ios-sync-signing.sh
+```
+
+### 4. Archive And Export IPA
 
 ```bash
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 ./scripts/ios-local-archive.sh
 ```
 
-### 4. Upload IPA
+### 5. Upload IPA
 
 ```bash
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
@@ -88,10 +108,14 @@ APPSTORECONNECT_ISSUER_ID=2eb29bd9-aa20-47a0-bfb7-c62cee29a08d \
 2. Open App Store Connect -> TestFlight.
 3. Confirm the new build number appears and finishes processing.
 
-## Known Signing Risk
+## Headless Signing Direction
 
-This repo now points at Apple team `AMJGQSTR94` in both `project.yml` and the generated Xcode project.
-Archive/upload still depends on Xcode successfully creating or downloading signing assets for both the app target and the widget target.
+This repo now targets deterministic manual App Store signing:
+
+- app profile: `match AppStore com.lumen.honestfastingtimer`
+- widget profile: `match AppStore com.lumen.honestfastingtimer.widget`
+- signing asset sync: `fastlane match`
+- archive/export no longer depends on `-allowProvisioningUpdates`
 
 ## Recovery
 

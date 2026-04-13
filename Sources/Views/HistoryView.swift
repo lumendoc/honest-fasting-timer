@@ -19,7 +19,7 @@ struct HistoryView: View {
             }
             .navigationTitle("History")
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(context: .history)
                     .environmentObject(purchaseService)
             }
         }
@@ -285,37 +285,28 @@ struct LockedHistoryView: View {
     let onUnlock: () -> Void
     
     var body: some View {
-        VStack(spacing: 24) {
-            Spacer()
-            
-            Image(systemName: "lock.shield")
-                .font(.system(size: 80))
-                .foregroundStyle(.secondary)
-            
-            Text("History is a Premium Feature")
-                .font(.title2.bold())
-            
-            Text("Track your fasting history, view statistics, and build streaks with a one-time purchase.")
-                .font(.body)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
-            
-            Spacer()
-            
-            Button {
-                onUnlock()
-            } label: {
-                Label("Unlock for \(AppConfig.unlockPrice)", systemImage: "lock.open")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.accentColor)
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+        ScrollView {
+            VStack(spacing: 20) {
+                Spacer(minLength: 24)
+
+                ContextPromptCard(context: .history, actionTitle: "Unlock History") {
+                    onUnlock()
+                }
+
+                MonetizationCard {
+                    Text("What you get")
+                        .font(.headline)
+
+                    PurchaseFeatureList(items: [
+                        ("clock.arrow.trianglehead.counterclockwise.rotate.90", "Completed fasts", "Review recent sessions and how long you actually fasted."),
+                        ("flame.fill", "Streak tracking", "Stay consistent with current and best streak summaries."),
+                        ("chart.bar.xaxis", "Simple stats", "See total fasts and average duration at a glance.")
+                    ])
+                }
+
+                Spacer(minLength: 24)
             }
-            .padding(.horizontal, 48)
-            .padding(.bottom, 48)
         }
+        .padding(.horizontal, 20)
     }
 }

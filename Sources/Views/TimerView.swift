@@ -12,6 +12,7 @@ struct TimerView: View {
     @State private var showPaywall = false
     @State private var selectedPreset: FastPreset = .sixteenEight
     @State private var showPresetPicker = false
+    @State private var paywallContext: PaywallContext = .settings
     
     /// Tracks whether we're attempting to start the first fast (for paywall flow)
     @State private var isAttemptingFirstFast = false
@@ -34,7 +35,7 @@ struct TimerView: View {
             .padding()
             .navigationTitle("Fasting Timer")
             .sheet(isPresented: $showPaywall, onDismiss: handlePaywallDismiss) {
-                PaywallView()
+                PaywallView(context: paywallContext)
                     .environmentObject(purchaseService)
             }
             .sheet(isPresented: $showPresetPicker) {
@@ -59,6 +60,7 @@ struct TimerView: View {
         // Rule 2: If this is the first fast ever, show paywall first
         if !AppGroupDefaults.shared.hasStartedFirstFast {
             isAttemptingFirstFast = true
+            paywallContext = .firstFast
             showPaywall = true
             AppGroupDefaults.shared.hasSeenPaywall = true
             return
@@ -66,6 +68,7 @@ struct TimerView: View {
         
         // Rule 3: Not first fast, not unlocked - only allow free 16:8 preset
         if selectedPreset != .sixteenEight {
+            paywallContext = .lockedPreset(selectedPreset)
             showPaywall = true
             return
         }
@@ -174,6 +177,8 @@ struct InactiveFastView: View {
     @Binding var showPresetPicker: Bool
     let onStart: () -> Void
     @EnvironmentObject var purchaseService: PurchaseService
+    @State private var showPaywall = false
+    @State private var paywallContext: PaywallContext = .settings
     
     var body: some View {
         VStack(spacing: 32) {
@@ -208,26 +213,16 @@ struct InactiveFastView: View {
             }
             .buttonStyle(.plain)
             
-            // Premium badge for non-free presets
             if !purchaseService.isUnlocked && selectedPreset != .sixteenEight {
-                HStack {
-                    Image(systemName: "lock.fill")
-                        .font(.caption)
-                    Text("Premium preset - unlock to use")
-                        .font(.caption)
+                ContextPromptCard(context: .lockedPreset(selectedPreset), actionTitle: "Unlock This Preset") {
+                    paywallContext = .lockedPreset(selectedPreset)
+                    showPaywall = true
                 }
-                .foregroundStyle(.orange)
-            }
-            
-            // First fast indicator
-            if !purchaseService.isUnlocked && !AppGroupDefaults.shared.hasStartedFirstFast {
-                HStack {
-                    Image(systemName: "lock.fill")
-                        .font(.caption)
-                    Text("Unlock required for first fast")
-                        .font(.caption)
+            } else if !purchaseService.isUnlocked && !AppGroupDefaults.shared.hasStartedFirstFast {
+                ContextPromptCard(context: .firstFast, actionTitle: "Unlock Before Starting") {
+                    paywallContext = .firstFast
+                    showPaywall = true
                 }
-                .foregroundStyle(.orange)
             }
             
             Spacer()
@@ -244,6 +239,10 @@ struct InactiveFastView: View {
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
+        }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView(context: paywallContext)
+                .environmentObject(purchaseService)
         }
     }
 }
@@ -279,9 +278,19 @@ struct PresetPickerView: View {
                         }
                         
                         if !purchaseService.isUnlocked && preset != .sixteenEight {
-                            Image(systemName: "lock.fill")
-                                .font(.caption)
+                            Text("Unlock")
+                                .font(.caption.weight(.semibold))
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.orange.opacity(0.12))
                                 .foregroundStyle(.orange)
+                                .clipShape(Capsule())
+                        }
+
+                        if !purchaseService.isUnlocked && preset != .sixteenEight {
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }

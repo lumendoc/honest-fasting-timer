@@ -20,14 +20,12 @@ xcodebuild \
   -configuration Release \
   -destination "generic/platform=iOS" \
   -archivePath "$ARCHIVE_PATH" \
-  -allowProvisioningUpdates \
   clean archive
 
 xcodebuild \
   -exportArchive \
   -archivePath "$ARCHIVE_PATH" \
   -exportPath "$EXPORT_PATH" \
-  -allowProvisioningUpdates \
   -exportOptionsPlist "$EXPORT_OPTIONS_PLIST"
 
 echo "Archive ready: $ARCHIVE_PATH"

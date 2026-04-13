@@ -1,0 +1,8 @@
+git_url(ENV["MATCH_GIT_URL"]) if ENV["MATCH_GIT_URL"]
+storage_mode("git")
+type(ENV["MATCH_TYPE"] || "appstore")
+team_id("AMJGQSTR94")
+readonly(ENV["MATCH_READONLY"] == "1")
+git_branch(ENV["MATCH_GIT_BRANCH"]) if ENV["MATCH_GIT_BRANCH"]
+keychain_name(ENV["MATCH_KEYCHAIN_NAME"]) if ENV["MATCH_KEYCHAIN_NAME"]
+keychain_password(ENV["MATCH_KEYCHAIN_PASSWORD"]) if ENV["MATCH_KEYCHAIN_PASSWORD"]

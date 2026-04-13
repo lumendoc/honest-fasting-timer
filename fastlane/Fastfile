@@ -1,0 +1,46 @@
+default_platform(:ios)
+
+def required_env!(name)
+  value = ENV[name]
+  UI.user_error!("Missing environment variable #{name}") if value.to_s.empty?
+  value
+end
+
+def app_store_connect_api_key_from_env
+  options = {
+    key_id: required_env!("APPSTORECONNECT_KEY_ID"),
+    issuer_id: required_env!("APPSTORECONNECT_ISSUER_ID"),
+    duration: 1200
+  }
+
+  if ENV["APPSTORECONNECT_API_KEY_PATH"].to_s != ""
+    options[:key_filepath] = ENV["APPSTORECONNECT_API_KEY_PATH"]
+  elsif ENV["APPSTORECONNECT_API_KEY_CONTENT"].to_s != ""
+    options[:key_content] = ENV["APPSTORECONNECT_API_KEY_CONTENT"]
+    options[:is_key_content_base64] = ENV["APPSTORECONNECT_API_KEY_BASE64"] == "1"
+  else
+    UI.user_error!("Set APPSTORECONNECT_API_KEY_PATH or APPSTORECONNECT_API_KEY_CONTENT")
+  end
+
+  app_store_connect_api_key(**options)
+end
+
+platform :ios do
+  desc "Sync App Store signing assets for headless release builds"
+  lane :sync_signing do
+    match(
+      api_key: app_store_connect_api_key_from_env,
+      app_identifier: [
+        "com.lumen.honestfastingtimer",
+        "com.lumen.honestfastingtimer.widget"
+      ],
+      git_branch: ENV["MATCH_GIT_BRANCH"],
+      git_url: required_env!("MATCH_GIT_URL"),
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      readonly: ENV["MATCH_READONLY"] == "1",
+      team_id: "AMJGQSTR94",
+      type: "appstore"
+    )
+  end
+end
