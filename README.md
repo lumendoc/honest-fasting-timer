@@ -1,5 +1,7 @@
 # iOS App Starter Template
 
+See [BUILD.md](./BUILD.md) for the local-Mac iOS release policy for this repo.
+
 This is the factory's default assembly-line template for iOS apps.
 Use this as the foundation for every app Mario builds.
 
