@@ -67,7 +67,7 @@ class FastTimerService: ObservableObject {
         NotificationService.shared.scheduleFastCompletionNotification(endDate: endDate)
         
         // Update widget
-        WidgetCenter.shared.reloadTimelines(ofKind: "FastingTimerWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: "HonestFastingTimer")
     }
     
     func stopFast() {
@@ -84,7 +84,7 @@ class FastTimerService: ObservableObject {
         AppGroupDefaults.shared.activeFast = nil
         
         // Update widget
-        WidgetCenter.shared.reloadTimelines(ofKind: "FastingTimerWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: "HonestFastingTimer")
     }
     
     func completeFast() {
@@ -104,7 +104,7 @@ class FastTimerService: ObservableObject {
         updateStreak()
         
         // Update widget
-        WidgetCenter.shared.reloadTimelines(ofKind: "FastingTimerWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: "HonestFastingTimer")
     }
     
     func extendFast(additionalTime: TimeInterval) {
@@ -129,7 +129,7 @@ class FastTimerService: ObservableObject {
         NotificationService.shared.scheduleFastCompletionNotification(endDate: newEndDate)
         
         // Update widget
-        WidgetCenter.shared.reloadTimelines(ofKind: "FastingTimerWidget")
+        WidgetCenter.shared.reloadTimelines(ofKind: "HonestFastingTimer")
     }
     
     private func saveCompletedFast(_ fast: ActiveFast, wasCompletedNaturally: Bool) {

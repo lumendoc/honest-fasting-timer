@@ -127,17 +127,10 @@ struct ActiveFastView: View {
                 .font(.title2)
                 .foregroundStyle(.secondary)
             
-            // Countdown
-            Text(timerService.currentTime, style: .timer)
+            // Countdown - shows remaining time until fast ends
+            Text(fast.endDate, style: .timer)
                 .font(.system(size: 72, weight: .bold, design: .rounded))
                 .monospacedDigit()
-                .overlay {
-                    // Custom countdown display
-                    Text(fast.formattedRemainingTime)
-                        .font(.system(size: 72, weight: .bold, design: .rounded))
-                        .monospacedDigit()
-                        .opacity(0) // Hidden but maintains layout
-                }
             
             // Progress ring
             ProgressRing(progress: fast.progress)

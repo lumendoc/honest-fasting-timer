@@ -27,7 +27,7 @@ class AppGroupDefaults {
                 defaults?.removeObject(forKey: "activeFast")
             }
             // Notify widget to update
-            WidgetCenter.shared.reloadTimelines(ofKind: "FastingTimerWidget")
+            WidgetCenter.shared.reloadTimelines(ofKind: "HonestFastingTimer")
         }
     }
     
