@@ -93,11 +93,11 @@ class FastTimerService: ObservableObject {
         // Cancel notification (though it should have fired)
         NotificationService.shared.cancelFastCompletionNotification()
         
-        // Update streak BEFORE saving the new fast date (streak checks previous fast date)
-        updateStreak()
-        
-        // Save as completed fast
+        // Save as completed fast FIRST (sets lastFastEndDate)
         saveCompletedFast(fast, wasCompletedNaturally: true)
+        
+        // Update streak AFTER saving (streak checks lastFastEndDate for continuity)
+        updateStreak()
         
         // Clear active fast
         self.activeFast = nil
