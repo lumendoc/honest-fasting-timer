@@ -126,5 +126,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-        .environmentObject(PurchaseService())
+        .environmentObject(PurchaseService.shared)
 }

@@ -4,7 +4,7 @@ import SwiftData
 struct TimerView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject private var timerService: FastTimerService
-    @StateObject private var purchaseService = PurchaseService()
+    @StateObject private var purchaseService = PurchaseService.shared
     
     init() {
         _timerService = StateObject(wrappedValue: FastTimerService())

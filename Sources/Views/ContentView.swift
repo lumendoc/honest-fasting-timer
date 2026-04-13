@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var purchaseService = PurchaseService()
+    @StateObject private var purchaseService = PurchaseService.shared
     @State private var showSettings = false
     
     var body: some View {

@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct HistoryView: View {
-    @StateObject private var purchaseService = PurchaseService()
+    @StateObject private var purchaseService = PurchaseService.shared
     @Query(sort: \CompletedFast.startDate, order: .reverse) private var completedFasts: [CompletedFast]
     @State private var showPaywall = false
     

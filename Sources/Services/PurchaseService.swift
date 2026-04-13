@@ -3,16 +3,43 @@ import StoreKit
 
 @MainActor
 class PurchaseService: ObservableObject {
+    static let shared = PurchaseService()
+    
     @Published var isUnlocked = false
     @Published var product: Product?
     @Published var isLoading = false
     
     private let productID = AppConfig.unlockProductId
+    private var transactionTask: Task<Void, Never>?
     
     init() {
+        // Start listening for transactions
+        transactionTask = Task { [weak self] in
+            await self?.listenForTransactions()
+        }
+        
         Task {
             await loadProducts()
             await checkPurchaseStatus()
+        }
+    }
+    
+    deinit {
+        transactionTask?.cancel()
+    }
+    
+    /// Continuously listen for new transactions (purchases from other tabs, restores, etc.)
+    private func listenForTransactions() async {
+        for await result in Transaction.updates {
+            guard case .verified(let transaction) = result else { continue }
+            
+            if transaction.productID == productID {
+                await MainActor.run {
+                    self.isUnlocked = true
+                }
+            }
+            
+            await transaction.finish()
         }
     }
     
@@ -68,6 +95,10 @@ class PurchaseService: ObservableObject {
         isLoading = true
         defer { isLoading = false }
         
+        // Sync with App Store first (required for fresh device restore)
+        try? await AppStore.sync()
+        
+        // Then check entitlements
         await checkPurchaseStatus()
     }
 }
