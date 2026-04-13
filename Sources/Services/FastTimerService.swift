@@ -93,15 +93,15 @@ class FastTimerService: ObservableObject {
         // Cancel notification (though it should have fired)
         NotificationService.shared.cancelFastCompletionNotification()
         
+        // Update streak BEFORE saving the new fast date (streak checks previous fast date)
+        updateStreak()
+        
         // Save as completed fast
         saveCompletedFast(fast, wasCompletedNaturally: true)
         
         // Clear active fast
         self.activeFast = nil
         AppGroupDefaults.shared.activeFast = nil
-        
-        // Update stats
-        updateStreak()
         
         // Update widget
         WidgetCenter.shared.reloadTimelines(ofKind: "HonestFastingTimer")
