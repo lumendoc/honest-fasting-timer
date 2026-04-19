@@ -124,12 +124,12 @@ struct PurchaseStatusCard: View {
                     .foregroundStyle(isUnlocked ? .green : .accentColor)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(isUnlocked ? "Lifetime unlock active" : "Free access")
+                    Text(isUnlocked ? "Lifetime unlock active" : "16:8 preset included")
                         .font(.headline)
 
                     Text(isUnlocked
                          ? "All presets, history, streaks, widget support, and notifications are available."
-                         : "The free tier includes the 16:8 preset. Unlock once for the full app.")
+                         : "The 16:8 preset is available. Unlock once for the full app.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -296,7 +296,7 @@ struct PaywallView: View {
 
                     VStack(spacing: 10) {
                         Link("Privacy Policy", destination: AppConfig.privacyPolicyURL)
-                        Link("Terms of Service", destination: AppConfig.termsOfServiceURL)
+                        Link("Terms of Use", destination: AppConfig.termsOfServiceURL)
                     }
                     .font(.footnote)
                     .foregroundStyle(.secondary)
