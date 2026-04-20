@@ -48,6 +48,6 @@ ios-starter/
 ## Rules
 
 - **Always use StoreKit or RevenueCat for iOS.** Never Stripe for native mobile unless explicitly told otherwise.
-- **Default to free trial.** Only use premium-upfront if the One-Pager justifies it.
+- **Default to honest monetization.** If the app uses a one-time unlock, say so clearly in onboarding, paywall, and settings.
 - **Keep AI calls cheap.** Gemini Flash is the default wrapper.
 - **RevenueCat keys stay in env only.** `AppConfig.revenueCatAPIKey` reads from the runtime environment first, then `.env.local` for local starter-project setup.

@@ -9,7 +9,7 @@ options:
 settings:
   base:
     MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "1"
+    CURRENT_PROJECT_VERSION: "2"
     DEVELOPMENT_TEAM: "AMJGQSTR94"
     CODE_SIGN_STYLE: Automatic
     SWIFT_VERSION: "5.0"
@@ -36,7 +36,7 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
-        NSCameraUsageDescription: ""
+        ITSAppUsesNonExemptEncryption: false
         NSUserNotificationUsageDescription: "Notifications are used to alert you when your fast is complete."
         UIBackgroundModes:
           - processing

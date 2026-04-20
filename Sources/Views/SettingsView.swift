@@ -97,7 +97,7 @@ struct SettingsView: View {
                         }
 
                         Link(destination: AppConfig.termsOfServiceURL) {
-                            settingsLinkRow(icon: "doc.text", title: "Terms of Service")
+                            settingsLinkRow(icon: "doc.text", title: "Terms of Use")
                         }
 
                         Link(destination: AppConfig.supportURL) {

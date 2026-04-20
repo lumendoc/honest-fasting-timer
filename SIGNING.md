@@ -4,7 +4,19 @@ This repo is set up for fully headless release signing with `fastlane match`.
 
 ## Required Secrets
 
-Copy `.env.match.example` to a secure local env file or inject the same variables through your agent runtime:
+Preferred local source on this Mac:
+
+```bash
+/Users/bot/.openclaw/secrets/ios-release.env
+```
+
+Standard repo bootstrap:
+
+```bash
+/Users/bot/.openclaw/secrets/install-ios-env-match.sh /Users/bot/workspace/repos/honest-fasting-timer
+```
+
+Or copy `.env.match.example` to a secure local env file or inject the same variables through your agent runtime:
 
 ```bash
 MATCH_GIT_URL
@@ -66,7 +78,7 @@ After that, bots should use readonly mode.
 ## Bot Flow
 
 ```bash
-cp .env.match.example .env.match
+/Users/bot/.openclaw/secrets/install-ios-env-match.sh /Users/bot/workspace/repos/honest-fasting-timer
 set -a
 source .env.match
 set +a
@@ -75,3 +87,12 @@ set +a
 ./scripts/ios-local-archive.sh
 ./scripts/ios-local-upload.sh
 ```
+
+Current local status on this Mac:
+
+- `.env.match` now exists
+- `fastlane match` now reaches the signing repo correctly
+- current blocker is Apple app registration: `com.lumen.honestfastingtimer` does not yet exist on the Apple Developer Portal, so readonly sync cannot find or create its appstore profile
+- after the App ID exists, rerun `./scripts/ios-sync-signing.sh` to provision both:
+  - `com.lumen.honestfastingtimer`
+  - `com.lumen.honestfastingtimer.widget`
