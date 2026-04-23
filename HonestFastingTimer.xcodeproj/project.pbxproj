@@ -18,6 +18,7 @@
 		8881884D698589C5372F36AB /* ActiveFast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10514B7C90A86E52A68901F9 /* ActiveFast.swift */; };
 		93C65D3909C77B3AB16E3E34 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39A65A5974592A9FB6F3910 /* HistoryView.swift */; };
 		970148C085FEAAD617857FE5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6858EAD90A318D21DEF6B1D4 /* TimerView.swift */; };
+		999B5096DCF7D6D4F819B4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9617DB1B5C456FE9CDB4899 /* Assets.xcassets */; };
 		A5187C0BC3FD97C0ABA3DEF5 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB0E84A5352651FF9F39ED0 /* PaywallView.swift */; };
 		B084EE4451F44F97BFD5FC17 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B78DC393C5C3D831B20127 /* PurchaseService.swift */; };
 		D5964A3DB8DA0B45AEE50C65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02B4FA0270D6DB7632A1400 /* ContentView.swift */; };
@@ -68,6 +69,7 @@
 		7544EB6B48F8DB534178A73A /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		76CC58B5ABA93AED6D723068 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		991CCF9D85249AA38BE2A7E6 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		B9617DB1B5C456FE9CDB4899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1FF8AEB094528F838D35305 /* HonestFastingTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HonestFastingTimer.entitlements; sourceTree = "<group>"; };
 		C853D90265C1F77D74B71DBB /* HonestFastingTimerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HonestFastingTimerWidget.swift; sourceTree = "<group>"; };
 		F02B4FA0270D6DB7632A1400 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -152,9 +154,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		7417C908D046005F2335AFF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B9617DB1B5C456FE9CDB4899 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		85B0438E580FF6F6006E8315 = {
 			isa = PBXGroup;
 			children = (
+				7417C908D046005F2335AFF7 /* Resources */,
 				A133B5C2798C32CB04D7F832 /* Sources */,
 				44BDA0766969C3A3EF7DDF63 /* Widget */,
 				12B9527EA86834A4A1E9E60D /* Products */,
@@ -210,6 +221,7 @@
 			buildConfigurationList = BA2282B00559F29F88E18E97 /* Build configuration list for PBXNativeTarget "HonestFastingTimer" */;
 			buildPhases = (
 				7C5E61F8234539067835E004 /* Sources */,
+				60E7B7648F2599134E2AC903 /* Resources */,
 				765FD9B2C024CE1E0B6114C2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -252,11 +264,11 @@
 				TargetAttributes = {
 					41EE321850A3DAAEE602B876 = {
 						DevelopmentTeam = AMJGQSTR94;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					ED837E6EDE58216BBFB8258F = {
 						DevelopmentTeam = AMJGQSTR94;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -279,6 +291,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60E7B7648F2599134E2AC903 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				999B5096DCF7D6D4F819B4DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7C5E61F8234539067835E004 /* Sources */ = {
@@ -387,10 +410,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sources/Widget/WidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution: David Mendez (AMJGQSTR94)";
+				CODE_SIGN_STYLE = Manual;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Sources/Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer.widget;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.lumen.honestfastingtimer.widget";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -468,15 +494,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_ON_DEMAND_RESOURCES_ENABLED = NO;
 				CODE_SIGN_ENTITLEMENTS = Sources/App/HonestFastingTimer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution: David Mendez (AMJGQSTR94)";
+				CODE_SIGN_STYLE = Manual;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Sources/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.lumen.honestfastingtimer";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -486,15 +515,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_ON_DEMAND_RESOURCES_ENABLED = NO;
 				CODE_SIGN_ENTITLEMENTS = Sources/App/HonestFastingTimer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution: David Mendez (AMJGQSTR94)";
+				CODE_SIGN_STYLE = Manual;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Sources/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.lumen.honestfastingtimer";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,10 +536,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sources/Widget/WidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution: David Mendez (AMJGQSTR94)";
+				CODE_SIGN_STYLE = Manual;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Sources/Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lumen.honestfastingtimer.widget;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.lumen.honestfastingtimer.widget";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
